@@ -37,10 +37,11 @@
             btnGrid = new Button();
             btnFolderSelect = new Button();
             pnlUser = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
-            lblUser = new Label();
             pnlMenu.SuspendLayout();
             pnlUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlFormLoader
@@ -87,6 +88,7 @@
             btnSettings.Size = new Size(233, 55);
             btnSettings.TabIndex = 4;
             btnSettings.Text = "Settings";
+            btnSettings.TextAlign = ContentAlignment.MiddleLeft;
             btnSettings.UseVisualStyleBackColor = true;
             btnSettings.Click += btnSettings_Click;
             // 
@@ -138,13 +140,23 @@
             // pnlUser
             // 
             pnlUser.BackColor = Color.DimGray;
+            pnlUser.Controls.Add(pictureBox1);
             pnlUser.Controls.Add(label2);
-            pnlUser.Controls.Add(lblUser);
             pnlUser.Dock = DockStyle.Top;
             pnlUser.Location = new Point(0, 0);
             pnlUser.Name = "pnlUser";
             pnlUser.Size = new Size(233, 100);
             pnlUser.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(45, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(136, 77);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -153,16 +165,6 @@
             label2.Name = "label2";
             label2.Size = new Size(0, 15);
             label2.TabIndex = 1;
-            // 
-            // lblUser
-            // 
-            lblUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblUser.AutoSize = true;
-            lblUser.Location = new Point(81, 58);
-            lblUser.Name = "lblUser";
-            lblUser.Size = new Size(60, 15);
-            lblUser.TabIndex = 0;
-            lblUser.Text = "Username";
             // 
             // Main
             // 
@@ -181,6 +183,7 @@
             pnlMenu.ResumeLayout(false);
             pnlUser.ResumeLayout(false);
             pnlUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -190,11 +193,11 @@
         private Panel pnlMenu;
         private Panel pnlUser;
         private Label label2;
-        private Label lblUser;
         private Button btnFolderSelect;
         private Button btnThumbnails;
         private Button btnGrid;
         private Panel pnlNav;
         private Button btnSettings;
+        private PictureBox pictureBox1;
     }
 }

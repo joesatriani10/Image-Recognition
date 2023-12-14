@@ -7,22 +7,30 @@ namespace Image_Recognition
         private Button? _lastClicked;
         private readonly FolderSelection _folderSelectionForm = new FolderSelection()
         {
-            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+            Dock = DockStyle.Fill,
+            TopLevel = false,
+            TopMost = true
         };
 
         private readonly ResultsGrid _resultsGrid = new ResultsGrid()
         {
-            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+            Dock = DockStyle.Fill,
+            TopLevel = false,
+            TopMost = true
         };
 
         private readonly ResultsThumbnails _resultsThumbnails = new ResultsThumbnails()
         {
-            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+            Dock = DockStyle.Fill,
+            TopLevel = false,
+            TopMost = true
         };
 
         private readonly Settings _settings = new Settings()
         {
-            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+            Dock = DockStyle.Fill,
+            TopLevel = false,
+            TopMost = true
         };
 
 
@@ -39,7 +47,7 @@ namespace Image_Recognition
 
         }
 
-        
+
         private void RefreshPnlNav()
         {
             if (_lastClicked != null)
