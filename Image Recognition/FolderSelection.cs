@@ -29,7 +29,7 @@ namespace Image_Recognition
             if (string.IsNullOrEmpty(openFolder.SelectedPath))
             {
                 MessageBox.Show(@"Please select a folder");
-                
+
             }
             else
             {

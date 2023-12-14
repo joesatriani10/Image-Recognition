@@ -31,10 +31,13 @@
             tbPath = new TextBox();
             btnSelect = new Button();
             lblDisplay = new Label();
+            dgFiles = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgFiles).BeginInit();
             SuspendLayout();
             // 
             // tbPath
             // 
+            tbPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbPath.BorderStyle = BorderStyle.FixedSingle;
             tbPath.Location = new Point(27, 30);
             tbPath.MinimumSize = new Size(0, 30);
@@ -44,6 +47,7 @@
             // 
             // btnSelect
             // 
+            btnSelect.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSelect.BackColor = Color.Gainsboro;
             btnSelect.FlatAppearance.BorderSize = 0;
             btnSelect.FlatStyle = FlatStyle.Flat;
@@ -61,12 +65,21 @@
             lblDisplay.AutoSize = true;
             lblDisplay.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDisplay.ForeColor = Color.Gainsboro;
-            lblDisplay.Location = new Point(27, 78);
+            lblDisplay.Location = new Point(27, 63);
             lblDisplay.MinimumSize = new Size(100, 30);
             lblDisplay.Name = "lblDisplay";
             lblDisplay.Size = new Size(170, 30);
             lblDisplay.TabIndex = 2;
             lblDisplay.Text = "Please select a folder";
+            // 
+            // dgFiles
+            // 
+            dgFiles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgFiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgFiles.Location = new Point(27, 96);
+            dgFiles.Name = "dgFiles";
+            dgFiles.Size = new Size(732, 325);
+            dgFiles.TabIndex = 3;
             // 
             // FolderSelection
             // 
@@ -74,6 +87,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(81, 81, 81);
             ClientSize = new Size(800, 450);
+            Controls.Add(dgFiles);
             Controls.Add(lblDisplay);
             Controls.Add(btnSelect);
             Controls.Add(tbPath);
@@ -81,6 +95,7 @@
             Name = "FolderSelection";
             StartPosition = FormStartPosition.CenterParent;
             Text = "FolderSelection";
+            ((System.ComponentModel.ISupportInitialize)dgFiles).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +105,6 @@
         private TextBox tbPath;
         private Button btnSelect;
         private Label lblDisplay;
+        private DataGridView dgFiles;
     }
 }
