@@ -9,12 +9,12 @@ namespace Image_Recognition
             InitializeComponent();
 
             // Set the first button to be selected
-            GetPnlNav(btnFolderSelect);
+            GetSelected(btnFolderSelect);
         }
 
         private void btnFolderSelect_Click(object sender, EventArgs e)
         {
-            
+            GetSelected(btnFolderSelect);
         }
 
         private void RefreshPnlNav()
@@ -29,20 +29,20 @@ namespace Image_Recognition
             }
         }
 
-        private void GetPnlNav(Button? button)
+        private void GetSelected(Button? button)
         {
             _lastClicked = button;
             // Set buttons to normal color
 
-            RestoreButtonColors();      
+            RestoreButtonColors();
 
-            if(button != null)
+            if (button != null)
             {
                 button.BackColor = Color.FromArgb(81, 81, 81);
                 button.ForeColor = Color.FromArgb(255, 131, 131);
             }
-            
-            
+
+
             // Set pnlNav to button
             RefreshPnlNav();
         }
@@ -63,5 +63,19 @@ namespace Image_Recognition
             button.ForeColor = Color.Gainsboro;
         }
 
+        private void btnGrid_Click(object sender, EventArgs e)
+        {
+            GetSelected(btnGrid);
+        }
+
+        private void btnThumbnails_Click(object sender, EventArgs e)
+        {
+            GetSelected(btnThumbnails);
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            GetSelected(btnSettings);
+        }
     }
 }
