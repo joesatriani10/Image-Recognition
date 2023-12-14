@@ -30,6 +30,7 @@
         {
             tbPath = new TextBox();
             btnSelect = new Button();
+            lblDisplay = new Label();
             SuspendLayout();
             // 
             // tbPath
@@ -55,12 +56,25 @@
             btnSelect.UseVisualStyleBackColor = false;
             btnSelect.Click += button1_Click_1;
             // 
+            // lblDisplay
+            // 
+            lblDisplay.AutoSize = true;
+            lblDisplay.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDisplay.ForeColor = Color.Gainsboro;
+            lblDisplay.Location = new Point(27, 78);
+            lblDisplay.MinimumSize = new Size(100, 30);
+            lblDisplay.Name = "lblDisplay";
+            lblDisplay.Size = new Size(170, 30);
+            lblDisplay.TabIndex = 2;
+            lblDisplay.Text = "Please select a folder";
+            // 
             // FolderSelection
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(81, 81, 81);
             ClientSize = new Size(800, 450);
+            Controls.Add(lblDisplay);
             Controls.Add(btnSelect);
             Controls.Add(tbPath);
             FormBorderStyle = FormBorderStyle.None;
@@ -75,5 +89,6 @@
 
         private TextBox tbPath;
         private Button btnSelect;
+        private Label lblDisplay;
     }
 }
