@@ -74,10 +74,18 @@
             // 
             // dgFiles
             // 
+            dgFiles.AllowUserToAddRows = false;
+            dgFiles.AllowUserToDeleteRows = false;
+            dgFiles.AllowUserToOrderColumns = true;
+            dgFiles.AllowUserToResizeColumns = false;
+            dgFiles.AllowUserToResizeRows = false;
             dgFiles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgFiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgFiles.BorderStyle = BorderStyle.None;
+            dgFiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgFiles.Location = new Point(27, 96);
+            dgFiles.MultiSelect = false;
             dgFiles.Name = "dgFiles";
+            dgFiles.ReadOnly = true;
             dgFiles.Size = new Size(732, 325);
             dgFiles.TabIndex = 3;
             // 
