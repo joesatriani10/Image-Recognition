@@ -1,22 +1,45 @@
+using System.Drawing.Text;
+
 namespace Image_Recognition
 {
     public partial class Main : Form
     {
         private Button? _lastClicked;
+        private readonly FolderSelection _folderSelectionForm = new FolderSelection()
+        {
+            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+        };
+
+        private readonly ResultsGrid _resultsGrid = new ResultsGrid()
+        {
+            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+        };
+
+        private readonly ResultsThumbnails _resultsThumbnails = new ResultsThumbnails()
+        {
+            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+        };
+
+        private readonly Settings _settings = new Settings()
+        {
+            Dock = DockStyle.Fill, TopLevel = false, TopMost = true
+        };
+
 
         public Main()
         {
             InitializeComponent();
 
             // Set the first button to be selected
+
             GetSelected(btnFolderSelect);
+
+            this.pnlFormLoader.Controls.Add(_folderSelectionForm);
+            _folderSelectionForm.Show();
+
         }
 
-        private void btnFolderSelect_Click(object sender, EventArgs e)
-        {
-            GetSelected(btnFolderSelect);
-        }
-
+        
         private void RefreshPnlNav()
         {
             if (_lastClicked != null)
@@ -63,18 +86,39 @@ namespace Image_Recognition
             button.ForeColor = Color.Gainsboro;
         }
 
+        private void btnFolderSelect_Click(object sender, EventArgs e)
+        {
+            this.pnlFormLoader.Controls.Clear();
+            this.pnlFormLoader.Controls.Add(_folderSelectionForm);
+            _folderSelectionForm.Show();
+
+            GetSelected(btnFolderSelect);
+        }
+
         private void btnGrid_Click(object sender, EventArgs e)
         {
+            this.pnlFormLoader.Controls.Clear();
+            this.pnlFormLoader.Controls.Add(_resultsGrid);
+            _resultsGrid.Show();
+
             GetSelected(btnGrid);
         }
 
         private void btnThumbnails_Click(object sender, EventArgs e)
         {
+            this.pnlFormLoader.Controls.Clear();
+            this.pnlFormLoader.Controls.Add(_resultsThumbnails);
+            _resultsThumbnails.Show();
+
             GetSelected(btnThumbnails);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            this.pnlFormLoader.Controls.Clear();
+            this.pnlFormLoader.Controls.Add(_settings);
+            _settings.Show();
+
             GetSelected(btnSettings);
         }
     }
