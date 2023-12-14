@@ -16,6 +16,7 @@ namespace Image_Recognition
 
         private string _browsePath = "";
         private DirectoryInfo? _dInfo = null;
+        private List<FolderFile> _folderFile = new List<FolderFile>();
 
         public FolderSelection()
         {
@@ -41,7 +42,25 @@ namespace Image_Recognition
 
                 if (_dInfo.Exists)
                 {
-                    lblDisplay.Text = _dInfo.GetFiles().Length.ToString();
+
+                    var files = _dInfo.GetFiles();
+                    foreach (var file in files)
+                    {
+                        _folderFile.Add(new FolderFile
+                        {
+                            FileName = file.Name, 
+                            FilePath = file.FullName
+                        });
+                    }
+
+                    
+                    dgFiles.DataSource = null; 
+                    dgFiles.DataSource = _folderFile;
+
+                    // Set the DataGridView control's border and Style.
+                    dgFiles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgFiles.AllowUserToAddRows = false;
+                    dgFiles.RowHeadersVisible = false;
                 }
                 else
                 {
