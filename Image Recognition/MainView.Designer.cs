@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             pnlFormLoader = new Panel();
             pnlMenu = new Panel();
+            pnlNav2 = new Panel();
             pnlNav = new Panel();
             btnSettings = new Button();
             btnThumbnails = new Button();
@@ -56,6 +57,7 @@
             // pnlMenu
             // 
             pnlMenu.BackColor = Color.FromArgb(57, 57, 57);
+            pnlMenu.Controls.Add(pnlNav2);
             pnlMenu.Controls.Add(pnlNav);
             pnlMenu.Controls.Add(btnSettings);
             pnlMenu.Controls.Add(btnThumbnails);
@@ -68,6 +70,14 @@
             pnlMenu.Name = "pnlMenu";
             pnlMenu.Size = new Size(233, 602);
             pnlMenu.TabIndex = 1;
+            // 
+            // pnlNav2
+            // 
+            pnlNav2.BackColor = Color.Gainsboro;
+            pnlNav2.Location = new Point(0, 242);
+            pnlNav2.Name = "pnlNav2";
+            pnlNav2.Size = new Size(4, 128);
+            pnlNav2.TabIndex = 1;
             // 
             // pnlNav
             // 
@@ -199,5 +209,6 @@
         private Panel pnlNav;
         private Button btnSettings;
         private PictureBox pictureBox1;
+        private Panel pnlNav2;
     }
 }

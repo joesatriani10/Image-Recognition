@@ -4,7 +4,9 @@ namespace Image_Recognition
 {
     public partial class Main : Form
     {
+        private Font originalFont;
         private Button? _lastClicked;
+
         private readonly FolderSelection _folderSelectionForm = new FolderSelection()
         {
             Dock = DockStyle.Fill,
@@ -44,7 +46,6 @@ namespace Image_Recognition
 
             this.pnlFormLoader.Controls.Add(_folderSelectionForm);
             _folderSelectionForm.Show();
-
         }
 
 
@@ -57,6 +58,15 @@ namespace Image_Recognition
                 pnlNav.Top = _lastClicked.Top;
                 pnlNav.Left = _lastClicked.Left;
                 pnlNav.Show();
+
+                pnlNav2.Hide();
+                pnlNav2.Height = 2;
+                pnlNav2.Width = _lastClicked.Width + 15;
+                pnlNav2.Top = _lastClicked.Top + _lastClicked.Height - 2;
+                pnlNav2.Left = _lastClicked.Left;
+
+
+                pnlNav2.Show();
             }
         }
 
@@ -70,9 +80,9 @@ namespace Image_Recognition
             if (button != null)
             {
                 button.BackColor = Color.FromArgb(81, 81, 81);
-                button.ForeColor = Color.FromArgb(255, 131, 131);
+                button.ForeColor = Color.NavajoWhite;
+                button.Font = new Font(button.Font.FontFamily, 10, button.Font.Style | FontStyle.Bold);
             }
-
 
             // Set pnlNav to button
             RefreshPnlNav();
@@ -85,13 +95,13 @@ namespace Image_Recognition
             SetButtonColors(btnGrid);
             SetButtonColors(btnThumbnails);
             SetButtonColors(btnSettings);
-
         }
 
         private void SetButtonColors(Button button)
         {
             button.BackColor = Color.FromArgb(57, 57, 57);
             button.ForeColor = Color.Gainsboro;
+            button.Font = new Font(button.Font.FontFamily, 9, button.Font.Style | FontStyle.Regular);
         }
 
         private void btnFolderSelect_Click(object sender, EventArgs e)
