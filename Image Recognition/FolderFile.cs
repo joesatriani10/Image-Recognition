@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Image_Recognition
 {
-    internal class FolderFile
+    public class FolderFile
     {
         public string FileName { get; set; }
         public string FilePath { get; set; }

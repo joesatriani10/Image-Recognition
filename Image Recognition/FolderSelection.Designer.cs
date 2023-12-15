@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tbPath = new TextBox();
             btnSelect = new Button();
             lblDisplay = new Label();
             dgFiles = new DataGridView();
@@ -36,16 +35,6 @@
             ((System.ComponentModel.ISupportInitialize)dgFiles).BeginInit();
             pnlBack.SuspendLayout();
             SuspendLayout();
-            // 
-            // tbPath
-            // 
-            tbPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbPath.BorderStyle = BorderStyle.FixedSingle;
-            tbPath.Location = new Point(15, 49);
-            tbPath.MinimumSize = new Size(0, 30);
-            tbPath.Name = "tbPath";
-            tbPath.Size = new Size(654, 30);
-            tbPath.TabIndex = 0;
             // 
             // btnSelect
             // 
@@ -67,7 +56,7 @@
             lblDisplay.AutoSize = true;
             lblDisplay.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDisplay.ForeColor = Color.White;
-            lblDisplay.Location = new Point(15, 15);
+            lblDisplay.Location = new Point(18, 52);
             lblDisplay.MinimumSize = new Size(100, 30);
             lblDisplay.Name = "lblDisplay";
             lblDisplay.Size = new Size(170, 30);
@@ -96,7 +85,6 @@
             pnlBack.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlBack.BackColor = Color.Gray;
             pnlBack.Controls.Add(btnSelect);
-            pnlBack.Controls.Add(tbPath);
             pnlBack.Controls.Add(lblDisplay);
             pnlBack.Location = new Point(12, 12);
             pnlBack.Name = "pnlBack";
@@ -122,8 +110,6 @@
         }
 
         #endregion
-
-        private TextBox tbPath;
         private Button btnSelect;
         private Label lblDisplay;
         private DataGridView dgFiles;

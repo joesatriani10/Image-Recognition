@@ -15,28 +15,30 @@ namespace Image_Recognition
     {
 
         private string _browsePath = "";
-        private DirectoryInfo? _dInfo = null;
-        private List<FolderFile> _folderFile = new List<FolderFile>();
+        private DirectoryInfo? _dInfo = null;       
 
         public FolderSelection()
         {
             InitializeComponent();
+            
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private async void button1_Click_1(object sender, EventArgs e)
         {
             var openFolder = new FolderBrowserDialog();
             openFolder.ShowDialog();
             if (string.IsNullOrEmpty(openFolder.SelectedPath))
             {
                 MessageBox.Show(@"Please select a folder");
-
+                lblDisplay.Text = @"Please select a folder";
+                _browsePath = "";
+                lblDisplay.ForeColor = Color.Gainsboro;
             }
             else
             {
                 _browsePath = openFolder.SelectedPath;
                 lblDisplay.Text = _browsePath;
-
+                lblDisplay.ForeColor = Color.DarkGreen;
 
                 _dInfo = new DirectoryInfo(_browsePath);
 
@@ -46,8 +48,8 @@ namespace Image_Recognition
                     var files = _dInfo.GetFiles();
                     foreach (var file in files)
                     {
-                        
-                        _folderFile.Add(new FolderFile
+
+                        SharedData.FolderFiles.Add(new FolderFile
                         {
                             FileName = file.Name, 
                             FilePath = file.FullName,
@@ -57,7 +59,7 @@ namespace Image_Recognition
 
                     
                     dgFiles.DataSource = null; 
-                    dgFiles.DataSource = _folderFile;
+                    dgFiles.DataSource = SharedData.FolderFiles;
 
                     // Set the DataGridView control's border and Style.
                     dgFiles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -69,6 +71,8 @@ namespace Image_Recognition
                 else
                 {
                     MessageBox.Show(@"Looks like the folder doesn't exist", @"Folder doesn't exist");
+                    lblDisplay.Text = @"Please select a folder";
+                    lblDisplay.ForeColor = Color.Gainsboro;
                 }
             }
 
