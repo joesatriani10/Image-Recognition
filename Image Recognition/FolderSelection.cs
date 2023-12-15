@@ -46,10 +46,12 @@ namespace Image_Recognition
                     var files = _dInfo.GetFiles();
                     foreach (var file in files)
                     {
+                        
                         _folderFile.Add(new FolderFile
                         {
                             FileName = file.Name, 
-                            FilePath = file.FullName
+                            FilePath = file.FullName,
+                            FileExtension = file.Extension
                         });
                     }
 
@@ -61,6 +63,8 @@ namespace Image_Recognition
                     dgFiles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dgFiles.AllowUserToAddRows = false;
                     dgFiles.RowHeadersVisible = false;
+                    this.dgFiles.Columns[2].Visible = false; //Hide the FileExtension column
+
                 }
                 else
                 {
