@@ -8,6 +8,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Image_Recognition
 {
@@ -15,12 +16,12 @@ namespace Image_Recognition
     {
 
         private string _browsePath = "";
-        private DirectoryInfo? _dInfo = null;       
+        private DirectoryInfo? _dInfo = null;
 
         public FolderSelection()
         {
             InitializeComponent();
-            
+
         }
 
         private async void button1_Click_1(object sender, EventArgs e)
@@ -51,14 +52,14 @@ namespace Image_Recognition
 
                         SharedData.FolderFiles.Add(new FolderFile
                         {
-                            FileName = file.Name, 
+                            FileName = file.Name,
                             FilePath = file.FullName,
                             FileExtension = file.Extension
                         });
                     }
 
-                    
-                    dgFiles.DataSource = null; 
+
+                    dgFiles.DataSource = null;
                     dgFiles.DataSource = SharedData.FolderFiles;
 
                     // Set the DataGridView control's border and Style.
@@ -75,6 +76,22 @@ namespace Image_Recognition
                     lblDisplay.ForeColor = Color.Gainsboro;
                 }
             }
+
+        }
+
+        private void btnAnalize_Click(object sender, EventArgs e)
+        {
+
+
+            //Load sample data
+            var imageBytes = File.ReadAllBytes(@"C:\Users\Winchester\Downloads\Models\Other\Cat\444.jpg");
+            MLModel1.ModelInput sampleData = new MLModel1.ModelInput()
+            {
+                ImageSource = imageBytes,
+            };
+
+            //Load model and predict output
+            var result = MLModel1.Predict(sampleData);
 
         }
     }

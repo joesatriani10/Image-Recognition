@@ -32,6 +32,7 @@
             lblDisplay = new Label();
             dgFiles = new DataGridView();
             pnlBack = new Panel();
+            btnAnalize = new Button();
             ((System.ComponentModel.ISupportInitialize)dgFiles).BeginInit();
             pnlBack.SuspendLayout();
             SuspendLayout();
@@ -43,7 +44,7 @@
             btnSelect.FlatAppearance.BorderSize = 0;
             btnSelect.FlatStyle = FlatStyle.Flat;
             btnSelect.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSelect.Location = new Point(675, 49);
+            btnSelect.Location = new Point(194, 49);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new Size(86, 30);
             btnSelect.TabIndex = 1;
@@ -84,12 +85,23 @@
             // 
             pnlBack.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlBack.BackColor = Color.Gray;
+            pnlBack.Controls.Add(btnAnalize);
             pnlBack.Controls.Add(btnSelect);
             pnlBack.Controls.Add(lblDisplay);
             pnlBack.Location = new Point(12, 12);
             pnlBack.Name = "pnlBack";
             pnlBack.Size = new Size(776, 426);
             pnlBack.TabIndex = 0;
+            // 
+            // btnAnalize
+            // 
+            btnAnalize.Location = new Point(683, 55);
+            btnAnalize.Name = "btnAnalize";
+            btnAnalize.Size = new Size(75, 23);
+            btnAnalize.TabIndex = 3;
+            btnAnalize.Text = "Analize";
+            btnAnalize.UseVisualStyleBackColor = true;
+            btnAnalize.Click += btnAnalize_Click;
             // 
             // FolderSelection
             // 
@@ -114,5 +126,6 @@
         private Label lblDisplay;
         private DataGridView dgFiles;
         private Panel pnlBack;
+        private Button btnAnalize;
     }
 }
