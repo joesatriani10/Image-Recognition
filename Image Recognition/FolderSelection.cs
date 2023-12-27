@@ -30,6 +30,8 @@ namespace Image_Recognition
             btnSelect.ForeColor = Color.Black;
             btnSelect.BackColor = Color.Gainsboro;
             dgFiles.DataSource = null;
+            SharedData.FolderFiles.Clear();
+            SharedData.FileCount = 0;
 
             var openFolder = new FolderBrowserDialog();
             openFolder.ShowDialog();
@@ -87,18 +89,27 @@ namespace Image_Recognition
             }
         }
 
-        private void btnAnalize_Click(object sender, EventArgs e)
+        private async void btnAnalize_Click(object sender, EventArgs e)
         {
-            //Load sample data
-            var imageBytes = File.ReadAllBytes(@"C:\Users\Winchester\Downloads\Models\Other\Cat\400.jpg");
-            MLModel1.ModelInput sampleData = new MLModel1.ModelInput()
-            {
-                ImageSource = imageBytes,
-            };
 
-            //Load model and predict output
-            var result = MLModel1.Predict(sampleData);
-            lblDisplay.Text = result.PredictedLabel;
+            foreach (var imageFile in SharedData.FolderFiles)
+            {
+
+                //Load sample data
+                var imageBytes = File.ReadAllBytes(imageFile.FilePath);
+                MLModel1.ModelInput sampleData = new MLModel1.ModelInput()
+                {
+                    ImageSource = imageBytes,
+                };
+
+                //Load model and predict output
+                var result = MLModel1.Predict(sampleData);
+                
+                imageFile.PredictionLabel = result.PredictedLabel;
+                dgFiles.Refresh();
+            }
+
+            
         }
 
         private void dgFiles_DoubleClick(object sender, EventArgs e)
@@ -129,8 +140,8 @@ namespace Image_Recognition
                     imagePreview.StartPosition = FormStartPosition.Manual;
 
                     // Set the maximum width and height for the image
-                    var maxWidth = 800; // Set your maximum width
-                    var maxHeight = 600; // Set your maximum height
+                    const int maxWidth = 800; // Set your maximum width
+                    const int maxHeight = 600; // Set your maximum height
 
                     // Calculate the new width and height while maintaining the aspect ratio
                     int newWidth, newHeight;

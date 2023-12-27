@@ -11,5 +11,11 @@ namespace Image_Recognition
         public string FileName { get; set; }
         public string FilePath { get; set; }
         public string FileExtension { get; set; }
+        public string PredictionLabel { get; set; }
+
+        public FolderFile()
+        {
+            PredictionLabel = "Not yet analyzed";
+        }
     }
 }
