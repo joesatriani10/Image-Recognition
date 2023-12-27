@@ -84,6 +84,7 @@
             dgFiles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgFiles.Size = new Size(740, 325);
             dgFiles.TabIndex = 3;
+            dgFiles.DoubleClick += dgFiles_DoubleClick;
             // 
             // pnlBack
             // 
