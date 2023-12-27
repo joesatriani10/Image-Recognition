@@ -24,8 +24,13 @@ namespace Image_Recognition
 
         }
 
+
         private async void button1_Click_1(object sender, EventArgs e)
         {
+            lblSelect.Visible = false;
+            btnSelect.ForeColor = Color.Black;
+            btnSelect.BackColor = Color.Gainsboro;
+
             var openFolder = new FolderBrowserDialog();
             openFolder.ShowDialog();
             if (string.IsNullOrEmpty(openFolder.SelectedPath))
@@ -49,15 +54,21 @@ namespace Image_Recognition
                     var files = _dInfo.GetFiles();
                     foreach (var file in files)
                     {
-
-                        SharedData.FolderFiles.Add(new FolderFile
+                        // check if is jpg
+                        if (file.Extension is ".jpg" or ".jpeg" or ".png")
                         {
-                            FileName = file.Name,
-                            FilePath = file.FullName,
-                            FileExtension = file.Extension
-                        });
+                            SharedData.FolderFiles.Add(new FolderFile
+                            {
+                                FileName = file.Name,
+                                FilePath = file.FullName,
+                                FileExtension = file.Extension
+                            });
+
+                            SharedData.FileCount++;
+                        }
                     }
 
+                    lblFileCount.Text = $"{SharedData.FileCount} Images";
 
                     dgFiles.DataSource = null;
                     dgFiles.DataSource = SharedData.FolderFiles;
@@ -84,7 +95,7 @@ namespace Image_Recognition
 
 
             //Load sample data
-            var imageBytes = File.ReadAllBytes(@"C:\Users\Winchester\Downloads\Models\Other\Cat\444.jpg");
+            var imageBytes = File.ReadAllBytes(@"C:\Users\Winchester\Downloads\Models\Other\Cat\400.jpg");
             MLModel1.ModelInput sampleData = new MLModel1.ModelInput()
             {
                 ImageSource = imageBytes,
@@ -92,6 +103,7 @@ namespace Image_Recognition
 
             //Load model and predict output
             var result = MLModel1.Predict(sampleData);
+            lblDisplay.Text = result.PredictedLabel;
 
         }
     }
