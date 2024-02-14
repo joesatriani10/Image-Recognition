@@ -62,7 +62,7 @@ namespace Image_Recognition
                             {
                                 FileName = file.Name,
                                 FilePath = file.FullName,
-                                FileExtension = file.Extension
+                                FileExtension = file.Extension,
                             });
 
                             SharedData.FileCount++;
@@ -106,6 +106,7 @@ namespace Image_Recognition
                 var result = MLModel1.Predict(sampleData);
                 
                 imageFile.PredictionLabel = result.PredictedLabel;
+                imageFile.Score = result.Score.Max().ToString("P2");
                 dgFiles.Refresh();
             }
 

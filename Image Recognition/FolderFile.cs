@@ -12,6 +12,7 @@ namespace Image_Recognition
         public string FilePath { get; set; }
         public string FileExtension { get; set; }
         public string PredictionLabel { get; set; }
+        public string Score { get; set; }
 
         public FolderFile()
         {

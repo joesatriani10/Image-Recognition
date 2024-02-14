@@ -22,18 +22,14 @@ namespace Image_Recognition
         private void LoadImages()
         {
             listView1.Items.Clear();
-            ImageList largeImageList = new ImageList();
-            ImageList smallImageList = new ImageList();
 
-            largeImageList.ImageSize = new Size(64, 64);
-            smallImageList.ImageSize = new Size(32, 32);
+            var largeImageList = new ImageList();
+            largeImageList.ImageSize = new Size(128, 128);
 
             listView1.LargeImageList = largeImageList;
-            listView1.SmallImageList = smallImageList;
 
             var files = SharedData.FolderFiles;
 
-            // ImageIndex must be unique for each ListViewItem
             int imageIndex = 0; // Start with 0
 
             foreach (var file in files)
@@ -44,11 +40,17 @@ namespace Image_Recognition
                 {
                     var image = Image.FromFile(imagePath);
                     largeImageList.Images.Add(image);
-                    smallImageList.Images.Add(image);
 
-                    var item = new ListViewItem(file.FileName, imageIndex); // Assign imageIndex!
-                    item.SubItems.Add(file.FileExtension);
-                    item.SubItems.Add(file.PredictionLabel);
+                    var item = new ListViewItem($"{file.PredictionLabel} {file.Score}", imageIndex); // Assign imageIndex!
+
+                    if (file.PredictionLabel == "Cat")
+                    {
+                        item.ForeColor = Color.YellowGreen;
+                    }
+                    else if (file.PredictionLabel == "Dog")
+                    {
+                        item.ForeColor = Color.Red;
+                    }
 
                     listView1.Items.Add(item);
                     imageIndex++; // Increment for the next image
@@ -58,6 +60,7 @@ namespace Image_Recognition
 
         private void ResultsThumbnails_Load(object sender, EventArgs e)
         {
+            LoadImages();
         }
 
         private void button1_Click(object sender, EventArgs e)

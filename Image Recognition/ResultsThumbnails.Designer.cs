@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             pnlBack = new Panel();
-            button1 = new Button();
-            label1 = new Label();
+            bReload = new Button();
             listView1 = new ListView();
+            label1 = new Label();
             pnlBack.SuspendLayout();
             SuspendLayout();
             // 
@@ -39,7 +39,7 @@
             // 
             pnlBack.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlBack.BackColor = Color.Gray;
-            pnlBack.Controls.Add(button1);
+            pnlBack.Controls.Add(bReload);
             pnlBack.Controls.Add(listView1);
             pnlBack.Controls.Add(label1);
             pnlBack.Location = new Point(12, 12);
@@ -47,16 +47,25 @@
             pnlBack.Size = new Size(776, 426);
             pnlBack.TabIndex = 3;
             // 
-            // button1
+            // bReload
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.Location = new Point(683, 53);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            bReload.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            bReload.Location = new Point(683, 53);
+            bReload.Name = "bReload";
+            bReload.Size = new Size(75, 23);
+            bReload.TabIndex = 2;
+            bReload.Text = "Reload";
+            bReload.UseVisualStyleBackColor = true;
+            bReload.Click += button1_Click;
+            // 
+            // listView1
+            // 
+            listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listView1.Location = new Point(18, 85);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(740, 325);
+            listView1.TabIndex = 1;
+            listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -68,15 +77,6 @@
             label1.Size = new Size(158, 21);
             label1.TabIndex = 0;
             label1.Text = "Results Thumbnails";
-            // 
-            // listView1
-            // 
-            listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            listView1.Location = new Point(18, 85);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(740, 325);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
             // 
             // ResultsThumbnails
             // 
@@ -100,7 +100,7 @@
 
         private Panel pnlBack;
         private Label label1;
-        private Button button1;
+        private Button bReload;
         private ListView listView1;
     }
 }
