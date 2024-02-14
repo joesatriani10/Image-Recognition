@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Image Recognition", "Image Recognition\Image Recognition.csproj", "{8951E93B-7691-49E2-A683-200655440C08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLModel1_ConsoleApp1", "MLModel1_ConsoleApp1\MLModel1_ConsoleApp1.csproj", "{89D43F62-C483-4B7C-A8CC-E2762AA83348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLModel1_ConsoleApp2", "MLModel1_ConsoleApp2\MLModel1_ConsoleApp2.csproj", "{29B45A56-D6FF-4C57-BC33-736EAE4739DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{8951E93B-7691-49E2-A683-200655440C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8951E93B-7691-49E2-A683-200655440C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8951E93B-7691-49E2-A683-200655440C08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89D43F62-C483-4B7C-A8CC-E2762AA83348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89D43F62-C483-4B7C-A8CC-E2762AA83348}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89D43F62-C483-4B7C-A8CC-E2762AA83348}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89D43F62-C483-4B7C-A8CC-E2762AA83348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B45A56-D6FF-4C57-BC33-736EAE4739DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B45A56-D6FF-4C57-BC33-736EAE4739DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B45A56-D6FF-4C57-BC33-736EAE4739DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B45A56-D6FF-4C57-BC33-736EAE4739DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
